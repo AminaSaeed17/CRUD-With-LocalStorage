@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div>
+        <div class="container bg-info p-3 rounded-2 my-3">
+            <h1 class="text-center fw-bold">CRUD SYSTEM</h1>
+            <div>
+                <div class="mb-3">
+                    <label for="ProductName" class="form-label">Product Name</label>
+                    <input oninput="validationInputs(this, 'nameMsg')" type="text" class="form-control" id="ProductName" placeholder="">
+                    <p class="bg-danger w-75 m-auto my-2 d-none" id="nameMsg">
+                        Please enter a valid name: English letters only, each word should start with a capital letter (e.g., "John Smith").
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <label for="ProductPrice" class="form-label">Product Price</label>
+                    <input oninput="validationInputs(this, 'priceMsg')" type="number" class="form-control" id="ProductPrice" placeholder="">
+                    <p class="bg-danger w-75 m-auto my-2 d-none" id="priceMsg">
+                        Please enter a valid price: numbers only, with up to two decimal places (e.g., "49.99").
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <label for="ProductCategory" class="form-label">Product Category</label>
+                    <input oninput="validationInputs(this, 'categoryMsg')" list="list" type="text" class="form-control" id="ProductCategory" placeholder="">
+                    <p class="bg-danger w-75 m-auto my-2 d-none" id="categoryMsg">
+                        Please enter a valid category name: English letters only, each word should start with a capital letter (e.g., "Home Appliances").
+                    </p>
+                    <datalist id="list">
+                            <option value="Tv">
+                            <option value="Mobile">
+                            <option value="Screen">
+                            <option value="Electronic">
+                    </datalist>
+                </div>
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Product Description</label>
+                    <textarea oninput="validationInputs(this, 'descriptionMsg')" class="form-control" id="productDescription" rows="3"></textarea>
+                    <p class="bg-danger w-75 m-auto my-2 d-none" id="descriptionMsg">
+                        Please enter a valid description using English letters, numbers, and basic punctuation only. Minimum 10 characters.
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <label for="productImage" class="form-label">Product Image</label>
+                    <input class="form-control" type="file" id="productImage">
+                </div>
+                <div class="btns">
+                    <button id="addProduct" onclick="addProduct();" class="btn bg-danger">Add Product</button>
+                    <button id="updateProduct" onclick="updateProduct()" class="btn bg-warning d-none">Update Product</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <input oninput="displayData()" class="form-control my-4 w-75 m-auto" list="datalistOptions" id="search" placeholder="Type to search...">
+        </div>
+        <div class="container-fluid">
+            <div class="row g-3" id="row">
+                
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
